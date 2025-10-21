@@ -35,7 +35,8 @@ export default function RootLayout({ children }) {
     gsap.set(elements, { autoAlpha: 0 });
     gsap.to(elements, {
       autoAlpha: 1,
-      duration: 0.35, // ⚡ faster fade-in
+      duration: 0.7
+      , // ⚡ faster fade-in
       ease: "power1.out",
       stagger: 0.008, // ⚡ quicker stagger
     });
