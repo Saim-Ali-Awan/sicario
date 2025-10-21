@@ -1,53 +1,56 @@
-'use client';
-import Link from 'next/link';
-import { IconCheck } from '@tabler/icons-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+// ❌ Remove "use client" from this file
+import Link from "next/link";
+import { IconCheck } from "@tabler/icons-react";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
+// ✅ Add metadata (server-side)
 export const metadata = {
   title: "Sicario.com | Pricing",
   description: "E-Commerce solutions for brands",
 };
+
+// ✅ Make this a server component (default)
 export default function PricingPage() {
   const pricingTiers = [
     {
-      title: 'Starter',
-      price: '$19/mo',
-      description: 'Perfect for new entrepreneurs starting their e-commerce journey.',
+      title: "Starter",
+      price: "$19/mo",
+      description: "Perfect for new entrepreneurs starting their e-commerce journey.",
       features: [
-        '1 AI-powered store',
-        'Basic funnel builder',
-        'Up to 1,000 monthly visitors',
-        'Email support',
+        "1 AI-powered store",
+        "Basic funnel builder",
+        "Up to 1,000 monthly visitors",
+        "Email support",
       ],
-      href: '/signup?plan=starter',
+      href: "/signup?plan=starter",
     },
     {
-      title: 'Pro',
-      price: '$49/mo',
-      description: 'Ideal for growing businesses with advanced needs.',
+      title: "Pro",
+      price: "$49/mo",
+      description: "Ideal for growing businesses with advanced needs.",
       features: [
-        '3 AI-powered stores',
-        'Advanced funnel builder',
-        'Up to 10,000 monthly visitors',
-        'Priority email support',
-        'Dropshipping integration',
+        "3 AI-powered stores",
+        "Advanced funnel builder",
+        "Up to 10,000 monthly visitors",
+        "Priority email support",
+        "Dropshipping integration",
       ],
-      href: '/signup?plan=pro',
+      href: "/signup?plan=pro",
       highlighted: true,
     },
     {
-      title: 'Enterprise',
-      price: '$99/mo',
-      description: 'For large-scale businesses scaling without limits.',
+      title: "Enterprise",
+      price: "$99/mo",
+      description: "For large-scale businesses scaling without limits.",
       features: [
-        'Unlimited AI-powered stores',
-        'Premium funnel builder',
-        'Unlimited monthly visitors',
-        '24/7 phone & email support',
-        'Dropshipping & COD integration',
-        'Custom analytics',
+        "Unlimited AI-powered stores",
+        "Premium funnel builder",
+        "Unlimited monthly visitors",
+        "24/7 phone & email support",
+        "Dropshipping & COD integration",
+        "Custom analytics",
       ],
-      href: '/signup?plan=enterprise',
+      href: "/signup?plan=enterprise",
     },
   ];
 
@@ -69,17 +72,24 @@ export default function PricingPage() {
           {pricingTiers.map((tier, index) => (
             <Card
               key={index}
-              className={`flex flex-col ${tier.highlighted ? 'border-primary shadow-lg' : 'border-border'} bg-card text-card-foreground`}
+              className={`flex flex-col ${
+                tier.highlighted ? "border-primary shadow-lg" : "border-border"
+              } bg-card text-card-foreground`}
             >
               <CardHeader>
-                <CardTitle className="text-xl font-semibold font-serif text-foreground">{tier.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold font-serif text-foreground">
+                  {tier.title}
+                </CardTitle>
                 <p className="text-3xl font-bold font-sans text-foreground">{tier.price}</p>
                 <p className="text-sm text-muted-foreground font-sans">{tier.description}</p>
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-2">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground font-sans">
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 text-sm text-muted-foreground font-sans"
+                    >
                       <IconCheck className="h-4 w-4 text-primary" />
                       {feature}
                     </li>
@@ -90,7 +100,7 @@ export default function PricingPage() {
                 <Link
                   href={tier.href}
                   className={`w-full text-center bg-primary text-primary-foreground px-4 py-2 rounded-[--radius] text-base font-semibold hover:bg-primary/90 transition-colors duration-300 ${
-                    tier.highlighted ? 'bg-primary/90' : ''
+                    tier.highlighted ? "bg-primary/90" : ""
                   }`}
                   aria-label={`Start a 30-day trial with Sicario.com ${tier.title} plan`}
                 >
